@@ -15,5 +15,6 @@ router.delete('/deletequiz/:id',teacherController.verifyToken,teacherController.
 router.post('/uploadquiz',teacherController.verifyToken,teacherController.uploadQuiz)
 router.post('/addquestion',teacherController.verifyToken,teacherController.addQuestion)
 router.get('/getallquestion/:id',teacherController.verifyToken,teacherController.getAllQuestion)
+router.delete('/deletequestion/:id',teacherController.verifyToken,teacherController.deleteQuestion)
 
 module.exports = router

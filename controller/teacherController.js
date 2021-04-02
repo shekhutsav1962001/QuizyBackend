@@ -167,7 +167,7 @@ exports.getHomequiz = (req, res) => {
 }
 
 exports.getAllQuestion = (req, res) => {
-
+    // const url = `http://localhost:4200/teacher/seequestion`
     Question.find({ quizid: req.params.id }, (err, qz) => {
         if (err) {
             console.log(error);
@@ -177,6 +177,20 @@ exports.getAllQuestion = (req, res) => {
             res.json({ msg: qz });
         }
     })
+    // res.redirect(
+    //     `${url}`)
+}
+
+
+exports.deleteQuestion = (req, res) => {
+    var id = req.params.id
+    Question.deleteOne({ _id: id }, (err) => {
+        if (err) {
+            res.json({ msg: "Somthing went wrong!!" });
+            console.log("err in delete  question by admin");
+        }
+    })
+    res.json({ msg: "yes deleted user by admin" })
 }
 
 exports.verifyToken = (req, res, next) => {
