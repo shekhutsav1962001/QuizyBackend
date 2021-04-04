@@ -102,6 +102,8 @@ exports.deleteQuiz = (req, res) => {
             console.log("err in delete by admin");
         }
     })
+    const io = req.app.get('io');
+    io.emit("quizcrud", "Quiz Curd done here");
     res.status(200).json({ msg: "yes deleted user by admin" })
 }
 exports.verifyToken = (req, res, next) => {
