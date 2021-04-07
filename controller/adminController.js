@@ -37,7 +37,7 @@ exports.getallquiz = (req, res) => {
         }
     })
 }
-exports.blockStudent = (req, res) => {
+exports.block = (req, res) => {
     var id = req.params.id
     User.updateOne({ _id: id }, { blocked: true }, function (err, user) {
         if (err) {
@@ -51,7 +51,7 @@ exports.blockStudent = (req, res) => {
     })
 
 }
-exports.unblockStudent = (req, res) => {
+exports.unblock = (req, res) => {
     var id = req.params.id
     User.updateOne({ _id: id }, { blocked: false }, function (err, user) {
         if (err) {
